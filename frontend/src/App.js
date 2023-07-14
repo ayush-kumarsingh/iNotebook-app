@@ -11,7 +11,7 @@ import Signup from './components/Signup';
 
 
 // const URL = "https://inotebook-backened-eapl.onrender.com";
-const URL = "http://localhost:4000";
+const URL = "https://inotebook-backened-eapl.onrender.com";
 const myNotes = createContext();       //creating a context 
 const myAlert = createContext();
 
