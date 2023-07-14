@@ -10,8 +10,11 @@ import Signup from './components/Signup';
 
 
 
+// const URL = "https://inotebook-backened-eapl.onrender.com";
+const URL = "http://localhost:4000";
 const myNotes = createContext();       //creating a context 
 const myAlert = createContext();
+
 
 
 
@@ -43,7 +46,7 @@ function App() {
 
   //get all notes passed as context -------------------------------------------->
   async function getnotes() {
-    const url = "http://localhost:4000/api/notes/fetchallnotes";
+    const url = `${URL}/api/notes/fetchallnotes`;
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -58,7 +61,7 @@ function App() {
 
   //get user details ------------------------------------------------------>
   async function getuserdetails() {
-    const url = "http://localhost:4000/api/auth/getuser";
+    const url = `${URL}/api/auth/getuser`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -79,7 +82,7 @@ function App() {
 
   //add notes passed as context ------------------------------------------->
   async function addnotes(title, description, tag) {
-    const url = "http://localhost:4000/api/notes/addnotes";
+    const url = `${URL}/api/notes/addnotes`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -97,7 +100,7 @@ function App() {
 
   //delete notes passed as context ------------------------------------------->
   async function deletenotes(id) {
-    const url = `http://localhost:4000/api/notes/deletenotes/${id}`;
+    const url = `${URL}/api/notes/deletenotes/${id}`;
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
@@ -114,7 +117,7 @@ function App() {
 
   //edit notes passed as context -------------------------------------------------->
   async function editnotes(id, title, description, tag) {
-    const url = `http://localhost:4000/api/notes/updatenotes/${id}`;
+    const url = `${URL}/api/notes/updatenotes/${id}`;
     const response = await fetch(url, {
       method: "PUT",
       headers: {
