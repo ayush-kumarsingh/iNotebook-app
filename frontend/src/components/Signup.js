@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { myAlert } from '../App';
+import { myAlert ,myProgress} from '../App';
 
 export default function Signup() {
+    const URL = "https://inotebook-backened-eapl.onrender.com";
+
+
     const showalert = useContext(myAlert)
+    const setProgress = useContext(myProgress);
     const navigate = useNavigate();
     const [userdata, setuserdata] = useState({
         name: "",
@@ -22,7 +26,8 @@ export default function Signup() {
             showalert('password and confirm password didn\'t match', 'danger');
             return;
         }
-        const url = "http://localhost:4000/api/auth/createuser";
+        setProgress(10);
+        const url = `${URL}/api/auth/createuser`;
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -34,10 +39,12 @@ export default function Signup() {
                 password: userdata.password
             }),
         });
+        setProgress(50);
         const json = response.json();
         navigate('/home');
         await showalert('Account created successfully', 'success');
         console.log(json);
+        setProgress(100);
     }
     return (
         <div>

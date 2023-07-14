@@ -1,18 +1,23 @@
 import React, { useContext, useState } from 'react'
 import {useNavigate ,Link} from 'react-router-dom'
-import { myAlert } from '../App';
+import { myAlert ,myProgress } from '../App';
 
 export default function Login() {
     const showalert = useContext(myAlert);
+    const setProgress = useContext(myProgress);
     const navigate = useNavigate();
     const [user,setuser] = useState({
         email : "",
         password : ""
     })
 
+    const URL = "https://inotebook-backened-eapl.onrender.com";
+
+
     async function handlesubmit(e) {
         e.preventDefault();
-        const url = `http://localhost:4000/api/auth/login`;
+        const url = `${URL}/api/auth/login`;
+        setProgress(10);
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -23,6 +28,7 @@ export default function Login() {
                 password : user.password
              })
         });
+        setProgress(50);
         const json = await response.json();
         console.log(json);
         if(json.success){
@@ -34,6 +40,7 @@ export default function Login() {
         else{
             showalert('invalid credentials', 'danger');
         }
+        setProgress(100);
     }
 
     function handleonchange(e){
