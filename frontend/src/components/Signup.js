@@ -40,10 +40,29 @@ export default function Signup() {
             }),
         });
         setProgress(50);
-        const json = response.json();
-        navigate('/home');
+
+
+        const url2 = `${URL}/api/auth/login`;
+        const res = await fetch(url2,{
+            method : "POST",
+            headers : {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ 
+                email : userdata.email,
+                password : userdata.password
+             })
+        })
+        const json2 = await res.json();
+        if(json2.success){
+            localStorage.setItem('token',json2.authtoken);
+            navigate('/home');
+        }
+        else{
+            showalert('some server error occured', 'danger');
+        }
         await showalert('Account created successfully', 'success');
-        console.log(json);
+        
         setProgress(100);
     }
     return (

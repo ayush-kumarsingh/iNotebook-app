@@ -173,7 +173,7 @@ function App() {
                 onLoaderFinished={() => setProgress(0)}
               />
               <Navbar />
-              <div className="" style={{height : '100vh'}}>
+              <div className="min-vh-100" >
                 <Alert alert={alert} />
                 <Routes>
                   <Route path="/home" element={<Home />} />
