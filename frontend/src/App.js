@@ -173,7 +173,7 @@ function App() {
                 onLoaderFinished={() => setProgress(0)}
               />
               <Navbar />
-              <div className="">
+              <div className="" style={{height : '100vh'}}>
                 <Alert alert={alert} />
                 <Routes>
                   <Route path="/home" element={<Home />} />
@@ -183,13 +183,13 @@ function App() {
                 </Routes>
               </div>
               <div className="bg-primary text-center p-5">
-                <a href="https://www.linkedin.com/in/aksingh564/" className='text-dark text-decoration-none'><i className="fa-brands fa-linkedin mx-4 py-2 fa-3x" ></i></a>
-                <a href="https://github.com/ayush-kumarsingh" className='text-dark text-decoration-none'><i className="fa-brands fa-github mx-4 py-2 fa-3x"></i></a>
-                <a href="https://www.instagram.com/kum8r_ay4sh/" className='text-dark text-decoration-none'><i className="fa-brands fa-square-instagram mx-4 py-2 fa-3x"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/aksingh564/" className='text-dark text-decoration-none'><i className="fa-brands fa-linkedin mx-4 py-2 fa-3x" ></i></a>
+                <a target="_blank" href="https://github.com/ayush-kumarsingh" className='text-dark text-decoration-none'><i className="fa-brands fa-github mx-4 py-2 fa-3x"></i></a>
+                <a target="_blank" href="https://www.instagram.com/kum8r_ay4sh/" className='text-dark text-decoration-none'><i className="fa-brands fa-square-instagram mx-4 py-2 fa-3x"></i></a>
                 <br />
                 <br />
 
-                <p>Email at : <a className='text-dark text-decoration-none' href='mailto:aksingh.er564@gmail.com'>aksingh.er564@gmail.com</a></p>
+                <p>Email at : <a target="_blank" className='text-dark text-decoration-none' href='mailto:aksingh.er564@gmail.com'>aksingh.er564@gmail.com</a></p>
               </div>
             </div>
           </BrowserRouter>
